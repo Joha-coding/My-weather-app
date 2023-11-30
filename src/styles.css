@@ -74,9 +74,10 @@ main {
 
 .icon-weather {
   font-size: 44px;
-  margin-top: 22px;
+
   width: 88px;
   height: 88px;
+  line-height: 28px;
 }
 
 .temperature-value {
