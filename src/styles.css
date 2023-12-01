@@ -42,21 +42,11 @@ header {
 }
 
 .weather-forecast {
+  display: flex;
+  justify-content: space-around;
   margin-top: 20px;
   text-align: center;
   color: #ac7c7c;
-}
-
-.weather-forecast-date {
-  font-size: 16px;
-}
-
-.weather-forecast-temperatures {
-  font-size: 13px;
-}
-
-.weather-forecast-temperature-min {
-  opacity: 0.5;
 }
 
 main {
@@ -109,6 +99,18 @@ main {
   color: #ac7c7c;
   margin-top: 15px;
   font-size: 25px;
+}
+
+.weather-forecast-date {
+  font-size: 16px;
+}
+
+.weather-forecast-temperatures {
+  font-size: 13px;
+}
+
+.weather-forecast-temperature-min {
+  opacity: 0.8;
 }
 
 .garlic {
