@@ -8,7 +8,7 @@ a {
 }
 
 .weather-section {
-  background-color: #f0ece2;
+  background-color: rgba(239, 236, 229, 0.5);
   max-width: 600px;
   margin: 45px auto;
   padding: 30px;
