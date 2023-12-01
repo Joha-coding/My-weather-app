@@ -88,6 +88,12 @@ main {
   line-height: 28px;
 }
 
+.weather-forecast-day:hover {
+  background-color: rgba(161, 142, 120, 0.3);
+  border-radius: 30px;
+  padding: 5px;
+  color: #e7e0d4;
+}
 .weather-forecast-icon {
   width: 88px;
   height: 88px;
