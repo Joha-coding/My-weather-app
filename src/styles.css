@@ -88,6 +88,13 @@ main {
   line-height: 28px;
 }
 
+.weather-forecast-icon {
+  width: 88px;
+  height: 88px;
+  display: block;
+  margin: 0 auto;
+}
+
 .temperature-value {
   color: #ac7c7c;
   font-size: 80px;

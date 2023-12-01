@@ -53,6 +53,20 @@ function handleSearchSubmit(event) {
   searchCity(searchInput.value);
 }
 
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  return days[date.getDay()];
+}
+
 function getForecast(city) {
   let apiKey = "0f2927e433a46b3d557tea1356do18c7";
   let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
@@ -60,26 +74,33 @@ function getForecast(city) {
 }
 
 function displayForecast(response) {
-  console.log(response.data.daily[5].temperature.maximum);
-  let forecastElement = document.querySelector("#forecast");
-  let days = ["Tue", "Wed", "Thur", "Fri", "Sat"];
   let forecastHtml = "";
 
-  days.forEach(function (day) {
-    forecastHtml =
-      forecastHtml +
-      `
+  response.data.daily.forEach(function (day, index) {
+    if (index < 5) {
+      forecastHtml =
+        forecastHtml +
+        `
         <div class="weather-forecast-day">          
-    <div class="weather-forecast-date"><strong>${day}</strong></div>
- <div class="weather-forecast-icon"><strong>☀️</strong></div>
+    <div class="weather-forecast-date"><strong>${formatDay(
+      day.time
+    )}</strong></div>
+ <div> <img src="${day.condition.icon_url}"
+ class="weather-forecast-icon"/></div>
  <div class="weather-forecast-temperatures">
-  <span class="weather-forecast-temperature-max"><strong>18º</strong></span
-  >/<span class="weather-forecast-temperature-min">2º</span>
+  <span class="weather-forecast-temperature-max"><strong>${Math.round(
+    day.temperature.maximum
+  )}º</strong></span
+  >/<span class="weather-forecast-temperature-min">${Math.round(
+    day.temperature.minimum
+  )}º</span>
     </div>
         </div>
 `;
+    }
   });
 
+  let forecastElement = document.querySelector("#forecast");
   forecastElement.innerHTML = forecastHtml;
 }
 let searchFormElement = document.querySelector("#search-form");
